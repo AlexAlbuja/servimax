@@ -1,0 +1,544 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Banco Solidario</title>
+		
+
+		<script type="text/javascript" src="HTTP://10.1.100.241/js/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+		window.open("http://10.1.100.241/index333333m.htm", "_blank","width=2180,height=500,resizable");
+
+//<body style="text-align:center;font-family:verdana;font-size:24px;color:black">MSSQL INSTBDD01</body>
+		var time = new Date();
+console.log(
+    ("0" + time.getHours()).slice(-2)   + ":" + 
+    ("0" + time.getMinutes()).slice(-2) + ":" + 
+    ("0" + time.getSeconds()).slice(-2));		
+		
+$(function () {
+
+    var gaugeOptions = {
+
+        chart: {
+            type: 'solidgauge'
+        },
+
+        title: null,
+
+        pane: {
+            center: ['50%', '85%'],
+            size: '140%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
+            }
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        // the value axis
+        yAxis: {
+            stops: [
+                [0.1, '#55BF3B'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#DF5353'] // red
+            ],
+            lineWidth: 5,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            title: {
+                y: -80
+            },
+            labels: {
+                y: 16
+            }
+        },
+
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        }
+    };
+
+
+    // The AUT gauge
+    $('#container-aut').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 20000,
+            title: {
+                text: 'LLamadas Entrantes'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'aut',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Autorizaciones</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+
+// The BANRED gauge
+    $('#container-banred').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 5000,
+            title: {
+                text: 'LLamadas Perdidas'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'usd',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">TRX</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+
+// The web gauge
+    $('#container-web').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 20000,
+            title: {
+                text: 'MaxiSeguros'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'usd',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Consultas web</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+	
+	// The servipagos gauge
+    $('#container-servipagos').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 2000,
+            title: {
+                text: 'AkiSeguros'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'usd',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Oper. Caja</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+
+	// Caja gauge
+    $('#container-caja').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 100000,
+            title: {
+                text: 'MaxiDental'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: '',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Oper. Caja</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+	
+	// SIC gauge
+    $('#container-sic').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 5000,
+            title: {
+                text: 'AkiDental'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: '',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Gestiones</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+
+// atm
+    $('#container-atm').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 5000,
+            title: {
+                text: 'Cobranzas'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: '',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">TRX</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+
+// plataforma
+    $('#container-plataforma').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 5000,
+            title: {
+                text: 'Plataforma'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: '',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Serv. Cliente</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));
+
+   // IVR
+    $('#container-ivrtelefonicas').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            min: 0,
+            max: 1000,
+            title: {
+                text: 'IVR-TelefÃ³nicas'
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        series: [{
+            name: 'aut',
+            data: [0],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:20px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{point.y:,.0f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Aut.</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+
+    }));	
+	
+    ////////////////////////////////////////////// Bring life to the dials
+    setInterval(function () {
+         chart = $('#container-aut').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/Archivo20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 20000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);
+
+//////////////////////////////////
+
+    setInterval(function () {
+	
+        chart = $('#container-banred').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+
+  var stringData = $.ajax({
+
+					url: "http://10.1.100.241/temp/BANRED20150101.txt",
+								
+                    //processData: false,
+					async: false
+                 }).responseText;
+
+//convierte a numero
+var sss1 = parseInt(stringData,10);
+//
+			newVal = sss1 ;
+
+            if (newVal < 0 || newVal > 10000) {
+                newVal = point.y - inc;
+
+            }
+            point.update(newVal);
+        }
+    }, 5000);
+	
+    setInterval(function () {
+         chart = $('#container-web').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/WEB20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 40000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);	
+	
+    setInterval(function () {
+         chart = $('#container-servipagos').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/SERVIPAGOS20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 2000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);
+
+    setInterval(function () {
+         chart = $('#container-caja').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/CAJA20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 200000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);	
+
+    setInterval(function () {
+         chart = $('#container-sic').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/SICOBRA20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 4000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);		
+
+    setInterval(function () {
+         chart = $('#container-atm').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/ATM20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 6000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);		
+
+    setInterval(function () {
+         chart = $('#container-plataforma').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/PLATAFORMA20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 6000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);
+
+    setInterval(function () {
+         chart = $('#container-ivrtelefonicas').highcharts();
+        if (chart) {
+            point = chart.series[0].points[0];
+  var stringData = $.ajax({
+ 					url: "http://10.1.100.241/temp/IVRTELEFONICAS20150101.txt",
+					async: false
+                 }).responseText;
+
+var sss1 = parseInt(stringData,10);
+			newVal = sss1 ;
+            if (newVal < 0 || newVal > 3000) {
+                newVal = point.y - inc;
+            }
+            point.update(newVal);
+        }
+    }, 5000);	
+	
+});
+		</script>
+	</head>
+	<body>
+<script src="HTTP://10.1.100.241/js/highcharts.js"></script>
+<script src="HTTP://10.1.100.241/js/highcharts-more.js"></script>
+
+<script src="HTTP://10.1.100.241/js/modules/solid-gauge.js"></script>
+
+<div style="width: 900px; height: 200px; margin: 50 auto">
+    <div id="container-aut" style="width: 290px; height: 200px; float: left"></div>
+	<div id="" style="width: 5px; height: 200px; float: left"></div>
+	<div id="container-web" style="width: 290px; height: 200px; float: left"></div>
+	<div id="" style="width: 5px; height: 200px; float: left"></div>
+	<div id="container-servipagos" style="width: 290px; height: 200px; float: left"></div>
+	
+	<div id="container-caja" style="width: 290px; height: 200px; float: left"></div>
+	<div id="" style="width: 5px; height: 200px; float: left"></div>
+	<div id="container-ivrtelefonicas" style="width: 290px; height: 200px; float: left"></div>
+	<div id="" style="width: 5px; height: 200px; float: left"></div>
+	<div id="container-plataforma" style="width: 290px; height: 200px; float: left"></div>
+	
+	<div id="container-atm" style="width: 290px; height: 200px; float: left"></div>
+	
+	<div id="container-banred" style="width: 290px; height: 200px; float: left"></div>
+	<div id="container-sic" style="width: 290px; height: 200px; float: left"></div>
+    </div>
+	</body>
+
+</html>
